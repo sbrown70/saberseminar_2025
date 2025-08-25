@@ -1274,6 +1274,8 @@ def full_df_modifications(df):
     df=add_flight_metrics_and_squared_up_pct(df)
     df=find_competitive_swings(df)
     df=add_pitch_group(df)
+
+    ## Yes I know I should just update these older helper functions to polars, but for now I'm just going to convert to and from so I can reuse
     
     df=pl.from_pandas(additional_columns_one(df.to_pandas()))
     df=pl.from_pandas(add_trajectory_info(df.to_pandas()))
